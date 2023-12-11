@@ -13,6 +13,7 @@ class FunSetSuite extends munit.FunSuite:
     assert(contains(x => true, 100))
   }
 
+
   /**
    * When writing tests, one would often like to re-use certain values for multiple
    * tests. For instance, we would like to create an Int-set and have multiple test
@@ -71,3 +72,5 @@ class FunSetSuite extends munit.FunSuite:
 
   import scala.concurrent.duration.*
   override val munitTimeout = 10.seconds
+
+

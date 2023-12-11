@@ -1,5 +1,7 @@
 package recfun
 
+import recfun.RecFun.balance
+
 object RecFun extends RecFunInterface:
 
   def main(args: Array[String]): Unit =
@@ -36,7 +38,7 @@ object RecFun extends RecFunInterface:
       }
     innerFuntion(chars,0)
 
-
+  println(balance("())(".toList))
 
   /**
    * Exercise 3
@@ -48,5 +50,5 @@ object RecFun extends RecFunInterface:
     else { val remaining_money = money-coins.head
         countChange(remaining_money, coins) + countChange(money, coins.tail) }
 
-
+  println(countChange(7, List(1,2)))
 

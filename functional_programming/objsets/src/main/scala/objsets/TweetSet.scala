@@ -31,6 +31,8 @@ class Tweet(val user: String, val text: String, val retweets: Int):
  *
  * [1] http://en.wikipedia.org/wiki/Binary_search_tree
  */
+
+
 abstract class TweetSet extends TweetSetInterface:
 
   /**
@@ -129,15 +131,15 @@ class Empty extends TweetSet:
   def foreach(f: Tweet => Unit): Unit = ()
 
 class NonEmpty( elem: Tweet, val left: TweetSet, val right: TweetSet) extends TweetSet:
-  val element = elem
+
   def filterAcc(p: Tweet => Boolean, acc: TweetSet): TweetSet =
-    if p(elem) then
-      left.filterAcc(p,right.filterAcc(p, acc.incl(elem)))
+    if p(this.elem) then
+      left.filterAcc(p,right.filterAcc(p, acc.incl(this.elem)))
     else
       left.filterAcc(p,right.filterAcc(p, acc))
 
   def union(that: TweetSet): TweetSet =
-    left.union(right.union(that.incl(elem)))
+    right.union(left.union(that.incl(elem)))
 
 
   def mostRetweeted: Tweet = new Tweet("Hello","world",2)
